@@ -34,7 +34,22 @@ namespace aquaparko
         
         private void Search()
         {
-            var result = DataBase.Instance.Products.Include(s => s.Foods)
+            var result = DataBase.Instance.Products.Include(s => s.Foods);
+        }
+
+        private void AddProduct(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveProduct(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditProduct(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

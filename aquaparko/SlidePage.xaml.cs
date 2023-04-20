@@ -23,6 +23,22 @@ namespace aquaparko
         public SlidePage()
         {
             InitializeComponent();
+            this.DataContext = this;
+        }
+
+        private void AddProduct(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveProduct(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditProduct(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
