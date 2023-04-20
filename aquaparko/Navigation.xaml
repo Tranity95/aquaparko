@@ -1,0 +1,35 @@
+﻿<Window x:Class="aquaparko.Navigation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aquaparko"
+        mc:Ignorable="d"
+        Title="Navigation" Height="450" Width="800">
+    <Grid Background="Azure">
+        <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+        </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="6" HorizontalAlignment="Center">
+                <TextBlock Margin="20 0">
+            <Button Click="GoMain" Content="Главная" Background="Azure" Margin="5" FontSize="20" />
+                </TextBlock>
+                <TextBlock Margin="20 0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="GoFood" Content="Буфет" Background="Azure" Margin="5" FontSize="20" />
+                </TextBlock>
+                <TextBlock Margin="20 0" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="GoSpa" Content="Сауны" Background="Azure" Margin="5" FontSize="20"/>
+                </TextBlock>
+                <TextBlock Margin="20 0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="GoSlide" Content="Атракционы" Background="Azure" Margin="5" FontSize="20" />
+                </TextBlock>
+                <TextBlock Margin="20 0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="Exit" Content="Выход" Background="Azure" Margin="5" FontSize="20" />
+                </TextBlock>
+            </StackPanel>
+            <Image Grid.ColumnSpan="6" VerticalAlignment="Bottom" Source="waves3.png" Grid.Row="1"/>
+        <Frame Grid.Row="2" NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}"/>
+    </Grid>
+</Window>
