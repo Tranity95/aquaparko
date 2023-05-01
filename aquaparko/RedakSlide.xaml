@@ -1,0 +1,43 @@
+﻿<Window x:Class="aquaparko.RedakSlide"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aquaparko"
+        mc:Ignorable="d"
+        Title="RedakSlide" Height="450" Width="800">
+    <Grid Background="Azure">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="5" Grid.RowSpan="2" Padding="3">
+            <StackPanel Margin="7" Grid.Column="0" Grid.Row="0">
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Id"/>
+                <TextBox FontSize="20" Text="{Binding SelectedAttraction.Id}"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Название блюда"/>
+                <TextBox FontSize="20" Text="{Binding SelectedAttraction.Title}"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Уровень страха"/>
+                <TextBox FontSize="20" Text="{Binding SelectedAttraction.ScaryLvl}"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Описание"/>
+                <TextBox FontSize="20" Text="{Binding SelectedAttraction.Description}"/>
+            </StackPanel>
+        </Border>
+        <Border Margin="0 5" Grid.Row="0" Grid.Column="1" BorderThickness="1" BorderBrush="Black" Padding="5">
+            <StackPanel>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <Image Height="200" Source="{Binding SelectedAttraction.ImagePath}"/>
+                    <Button FontSize="15" Background="Azure" Content="Выбрать фото" Click="SelectPhoto"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="Azure" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button FontSize="30" Background="AliceBlue" Content="Сохранить" BorderBrush="Black" BorderThickness="1" Click="SaveClose"/>
+        </StackPanel>
+    </Grid>
+</Window>

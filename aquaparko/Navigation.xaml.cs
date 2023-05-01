@@ -45,7 +45,7 @@ namespace aquaparko
 
         private void GoFood(object sender, RoutedEventArgs e)
         {
-            CurrentPage = new FoodPage();
+            CurrentPage = new FoodPage(user);
         }
 
         private void GoSpa(object sender, RoutedEventArgs e)
@@ -55,7 +55,7 @@ namespace aquaparko
 
         private void GoSlide(object sender, RoutedEventArgs e)
         {
-            CurrentPage = new SlidePage();
+            CurrentPage = new SlidePage(user);
         }
 
         private void Exit(object sender, RoutedEventArgs e)
@@ -67,6 +67,11 @@ namespace aquaparko
         private void GoMain(object sender, RoutedEventArgs e)
         {
             CurrentPage = new MainPage(user);
+        }
+
+        private void Buy(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -24,6 +24,6 @@
             <TextBox FontSize="20" Text="{Binding Password}" Margin="5" Height="30"/>
             <Button BorderThickness="1" Background="LightSkyBlue" Content="Войти" Height="35" FontSize="20" Margin="5" Width="150" Click="SignIn"/>
         </StackPanel>
-        <Image Source="logotype_2.png" Margin="5" Grid.Column="0" Grid.Row="1"/>
+        <Image Source="logonow.png" Margin="5" Grid.Column="0" Grid.Row="1"/>
     </Grid>
 </Window>

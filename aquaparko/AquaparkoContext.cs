@@ -29,6 +29,8 @@ public partial class AquaparkoContext : DbContext
 
     public virtual DbSet<Ticket> Tickets { get; set; }
 
+    public virtual DbSet<Type> Types { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -58,7 +60,7 @@ public partial class AquaparkoContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("image");
             entity.Property(e => e.ScaryLvl)
-                .HasMaxLength(255)
+                .HasColumnType("int(11)")
                 .HasColumnName("scaryLvl");
             entity.Property(e => e.Title)
                 .HasMaxLength(255)
@@ -70,6 +72,8 @@ public partial class AquaparkoContext : DbContext
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("food");
+
+            entity.HasIndex(e => e.Type, "FK_food_type");
 
             entity.Property(e => e.Id)
                 .HasColumnType("int(11)")
@@ -84,8 +88,12 @@ public partial class AquaparkoContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("title");
             entity.Property(e => e.Type)
-                .HasMaxLength(255)
+                .HasColumnType("int(11)")
                 .HasColumnName("type");
+
+            entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Foods)
+                .HasForeignKey(d => d.Type)
+                .HasConstraintName("FK_food_type");
 
             entity.HasMany(d => d.Products).WithMany(p => p.Foods)
                 .UsingEntity<Dictionary<string, object>>(
@@ -219,6 +227,16 @@ public partial class AquaparkoContext : DbContext
                 .HasConstraintName("FK_ticket_userId");
         });
 
+        modelBuilder.Entity<Type>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("type");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Title).HasMaxLength(255);
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
@@ -230,24 +248,12 @@ public partial class AquaparkoContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnType("int(11)")
                 .HasColumnName("id");
-            entity.Property(e => e.FirstName)
-                .HasMaxLength(255)
-                .HasColumnName("firstName");
-            entity.Property(e => e.LastName)
-                .HasMaxLength(255)
-                .HasColumnName("lastName");
-            entity.Property(e => e.Login)
-                .HasMaxLength(255)
-                .HasColumnName("login");
-            entity.Property(e => e.Password)
-                .HasMaxLength(255)
-                .HasColumnName("password");
-            entity.Property(e => e.RoleId)
-                .HasColumnType("int(11)")
-                .HasColumnName("roleId");
-            entity.Property(e => e.SurName)
-                .HasMaxLength(255)
-                .HasColumnName("surName");
+            entity.Property(e => e.FirstName).HasMaxLength(255);
+            entity.Property(e => e.LastName).HasMaxLength(255);
+            entity.Property(e => e.Login).HasMaxLength(255);
+            entity.Property(e => e.Password).HasMaxLength(255);
+            entity.Property(e => e.RoleId).HasColumnType("int(11)");
+            entity.Property(e => e.SurName).HasMaxLength(255);
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)

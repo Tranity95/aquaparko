@@ -28,7 +28,10 @@
                 <TextBlock Margin="20 0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Click="Exit" Content="Выход" Background="Azure" Margin="5" FontSize="20" />
                 </TextBlock>
-            </StackPanel>
+            <TextBlock Margin="20 0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="Buy" Content="Купить билет" Background="Azure" Margin="5" FontSize="20" />
+            </TextBlock>
+        </StackPanel>
             <Image Grid.ColumnSpan="6" VerticalAlignment="Bottom" Source="waves3.png" Grid.Row="1"/>
         <Frame Grid.Row="2" NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}"/>
     </Grid>
