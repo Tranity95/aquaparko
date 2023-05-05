@@ -58,11 +58,11 @@ namespace aquaparko
 
         private void SelectPhoto(object sender, RoutedEventArgs e)
         {
-            string dir = Environment.CurrentDirectory + @"\Images\";
+            string dir = Environment.CurrentDirectory + @"\images\";
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Images|*.png";
+            dlg.Filter = "Images|*.png;*.jpg;*.jpeg";
             if(dlg.ShowDialog() == true)
             {
                 var test = new BitmapImage(new Uri(dlg.FileName));
@@ -73,7 +73,7 @@ namespace aquaparko
                 }
                 string newFile = dir + new FileInfo(dlg.FileName).Name;
                 File.Copy(dlg.FileName, newFile, true);
-                SelectedFood.Image = File.ReadAllText(newFile);
+                SelectedFood.Image = @"\images\" + new FileInfo(dlg.FileName).Name;
                 Signal("SelectedFood");
             }
         }

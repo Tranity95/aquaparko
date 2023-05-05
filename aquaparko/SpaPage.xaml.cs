@@ -25,13 +25,13 @@ namespace aquaparko
         private readonly User user;
         public string CountView { get; set; }
 
-        public List<Sauna> Spas { get; set; }
-        public Sauna SelectedSpa { get; set; }
-        public List<string> Sorting { get; set; } = new List<string>() { "Без сортировки", "Сортировка по убыванию", "Сортировка по возрастанию" };
+        public List<Sauna> Saunas { get; set; }
+        public Sauna SelectedSauna { get; set; }
+        public List<string> Sorting { get; set; } = new List<string>() { "Без сортировки", "Сортировка по убыванию цены", "Сортировка по возрастанию цены" };
 
-        public Visibility IsAdminVisibility = Visibility.Visible;
+        public Visibility IsAdminVisibility { get; set; } = Visibility.Visible;
         private int selectedSorting;
-        private string searchText;
+        private string searchText = "";
 
         public event PropertyChangedEventHandler? PropertyChanged;
         void Signal(string prop) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
@@ -42,16 +42,17 @@ namespace aquaparko
             set
             {
                 selectedSorting = value;
-
+                Search();
             }
         }
 
         public string SearchText
-        { get => searchText; 
-          set 
+        { 
+            get => searchText; 
+            set 
             { 
                 searchText = value;
-                
+                Search();
             } 
         }
 
@@ -73,30 +74,55 @@ namespace aquaparko
         {
             var result = DataBase.Instance.Saunas.Where(s => s.Title.Contains(searchText));
             if (selectedSorting == 1)
-                result = result.OrderByDescending(s => s.Title);
+                result = result.OrderByDescending(s => s.Price);
             if (selectedSorting == 2)
-                result = result.OrderBy(s => s.Title);
-            Spas = result.ToList();
-            Signal(nameof(Spas));
+                result = result.OrderBy(s => s.Price);
+            Saunas = result.ToList();
+            Signal(nameof(Saunas));
 
-            CountView = $"Записей: {Spas.Count} из {DataBase.Instance.Saunas.Count()}";
+            CountView = $"Записей: {Saunas.Count} из {DataBase.Instance.Saunas.Count()}";
             Signal(nameof(CountView));
         }
 
-        private void RemoveSlide(object sender, RoutedEventArgs e)
+        private void RemoveSpa(object sender, RoutedEventArgs e)
         {
-
+            if (SelectedSauna != null)
+            {
+                if (MessageBox.Show("Удалить выбранную сауну из списка?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    DataBase.Instance.Saunas.Remove(SelectedSauna);
+                    DataBase.Instance.SaveChanges();
+                    Search();
+                }
+            }
         }
 
-        private void EditSlide(object sender, RoutedEventArgs e)
+        private void EditSpa(object sender, RoutedEventArgs e)
         {
-
+            if (SelectedSauna != null)
+            {
+                new RedakSpa(SelectedSauna).ShowDialog();
+                Search();
+            }
         }
 
-        private void AddSlide(object sender, RoutedEventArgs e)
+        private void AddSpa(object sender, RoutedEventArgs e)
         {
-
+            new RedakSpa(new Sauna()).ShowDialog();
+            Search();
         }
 
+        private void EditSpa(object sender, MouseButtonEventArgs e)
+        {
+            if (user.RoleId != 1)
+            {
+                return;
+            }
+            if (SelectedSauna != null)
+            {
+                new RedakSpa(SelectedSauna).ShowDialog();
+                Search();
+            }
+        }
     }
 }

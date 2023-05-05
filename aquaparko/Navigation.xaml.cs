@@ -50,7 +50,7 @@ namespace aquaparko
 
         private void GoSpa(object sender, RoutedEventArgs e)
         {
-            CurrentPage = new SpaPage();
+            CurrentPage = new SpaPage(user);
         }
 
         private void GoSlide(object sender, RoutedEventArgs e)
@@ -71,7 +71,7 @@ namespace aquaparko
 
         private void Buy(object sender, RoutedEventArgs e)
         {
-
+            CurrentPage = new TicketBuy(user);
         }
     }
 }

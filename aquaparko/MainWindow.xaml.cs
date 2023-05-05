@@ -46,5 +46,11 @@ namespace aquaparko
                 }
             }
         }
+
+        private void GoSignUp(object sender, RoutedEventArgs e)
+        {
+            new Register().Show();
+            Close();
+        }
     }
 }

@@ -7,6 +7,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SlidePage">
+    <Page.Resources>
+        <ContextMenu x:Key="ContextEdit" Visibility="{Binding IsAdminVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Page}}">
+            <MenuItem Header="Добавить" Click="AddSlide"/>
+            <MenuItem Header="Редактировать" Click="EditSlide"/>
+            <MenuItem Header="Удалить" Click="RemoveSlide"/>
+        </ContextMenu>
+    </Page.Resources>
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -36,14 +43,7 @@
                   FontSize="20"
                  ItemsSource="{Binding Attractions}"
                  SelectedItem="{Binding SelectedAttraction}"
-                 >
-            <ListView.ContextMenu>
-                <ContextMenu Visibility="{Binding IsAdminVisibility}">
-                    <MenuItem Header="Добавить" Click="AddSlide"/>
-                    <MenuItem Header="Редактировать" Click="EditSlide"/>
-                    <MenuItem Header="Удалить" Click="RemoveSlide"/>
-                </ContextMenu>
-            </ListView.ContextMenu>
+                 ContextMenu="{DynamicResource ContextEdit}">
             <ListView.View>
                 <GridView>
 

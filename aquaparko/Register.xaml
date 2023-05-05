@@ -1,0 +1,31 @@
+﻿<Window x:Class="aquaparko.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aquaparko"
+        mc:Ignorable="d"
+        Title="Register" Height="450" Width="800" MaxHeight="450" MaxWidth="800">
+    <Grid Background="Azure">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            
+            <TextBlock Margin="0 7" FontSize="20" Text="Создание аккаунта" HorizontalAlignment="Center"/>
+            <TextBlock FontSize="15" HorizontalAlignment="Center" Text="Ваше имя"/>
+            <TextBox Margin="0 5" Text="{Binding NewName}" FontSize="15"/>
+            <TextBlock FontSize="15" HorizontalAlignment="Center" Text="Ваша Фамилия"/>
+            <TextBox Text="{Binding NewLastName}" FontSize="15"/>
+            <TextBlock FontSize="15" HorizontalAlignment="Center" Text="Ваше Отчество"/>
+            <TextBox Margin="0 5" Text="{Binding NewSurName}" FontSize="15"/>
+            <TextBlock FontSize="15" Text="Введите адрес электронной почты:" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding NewLogin}" Margin="0 5" FontSize="15"/>
+            <TextBlock FontSize="15" Text="Придумайте пароль:" HorizontalAlignment="Center"/>
+            <PasswordBox Margin="0 5" x:Name="txtNewPassword" FontSize="15"/>
+            <TextBlock FontSize="15" Text="Подтвердите пароль:" HorizontalAlignment="Center"/>
+            <PasswordBox x:Name="txtNewPasswordConfirm" FontSize="15"/>
+            <Button Background="LightSkyBlue" BorderBrush="Black" BorderThickness="1" Click="SignUp" Margin="70 5" FontSize="15" Content="Создать"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="15">
+                <Hyperlink Click="GoSignIn">Уже есть аккаунт?</Hyperlink>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

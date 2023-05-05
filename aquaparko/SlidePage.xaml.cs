@@ -26,13 +26,11 @@ namespace aquaparko
         private readonly User user;
         public string CountView { get; set; }
 
-
-
         public List<Attraction> Attractions { get; set; }
         public Attraction SelectedAttraction { get; set; }
         public List<string> Sorting { get; set; } = new List<string>() { "Без сортировки", "Уровень страха по убыванию", "Уровень страха по возрастанию" };
 
-        public Visibility IsAdminVisibility = Visibility.Visible;
+        public Visibility IsAdminVisibility { get; set; } = Visibility.Visible;
         private int selectedSorting;
         private string searchText = "";
 

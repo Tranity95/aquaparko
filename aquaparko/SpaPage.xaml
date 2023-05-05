@@ -23,11 +23,11 @@
             <ComboBox ItemsSource="{Binding Sorting}"
                       SelectedIndex="{Binding SelectedSorting,
                 UpdateSourceTrigger=PropertyChanged}"/>
-            <Image Source="circle.png" Margin="20"/>
+            <Image Source="spa.png" Margin="20"/>
         </StackPanel>
         <StackPanel Visibility="{Binding IsAdminVisibility}" Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="10">
-            <Button Content="Добавить" Click="AddSlide"/>
-            <Button Content="Удалить" Click="RemoveSlide"/>
+            <Button Content="Добавить" Click="AddSpa"/>
+            <Button Content="Удалить" Click="RemoveSpa"/>
         </StackPanel>
 
         <ListView Grid.Column="1"
@@ -35,14 +35,13 @@
                  Margin="10"
                  HorizontalContentAlignment="Stretch"
                   FontSize="20"
-                 ItemsSource="{Binding Attractions}"
-                 SelectedItem="{Binding SelectedAttraction}"
+                 ItemsSource="{Binding Saunas}"
                  >
             <ListView.ContextMenu>
                 <ContextMenu Visibility="{Binding IsAdminVisibility}">
-                    <MenuItem Header="Добавить" Click="AddSlide"/>
-                    <MenuItem Header="Редактировать" Click="EditSlide"/>
-                    <MenuItem Header="Удалить" Click="RemoveSlide"/>
+                    <MenuItem Header="Добавить" Click="AddSpa"/>
+                    <MenuItem Header="Редактировать" Click="EditSpa"/>
+                    <MenuItem Header="Удалить" Click="RemoveSpa"/>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>
@@ -56,8 +55,9 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Уровень страха" DisplayMemberBinding="{Binding ScaryLvlString}"/>
-                    <GridViewColumn Header="Описание"  DisplayMemberBinding="{Binding Description}"/>
+                    <GridViewColumn Header="Температура, °C" DisplayMemberBinding="{Binding Temperature}"/>
+                    <GridViewColumn Header="Влажность, %"  DisplayMemberBinding="{Binding Humidity}"/>
+                    <GridViewColumn Header="Цена"  DisplayMemberBinding="{Binding Price}"/>
                 </GridView>
             </ListView.View>
         </ListView>

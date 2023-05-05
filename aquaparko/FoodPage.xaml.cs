@@ -34,7 +34,7 @@ namespace aquaparko
         public Food SelectedFood { get; set; }
         public List<string> Sorting { get; set; } = new List<string>() { "Без сортировки", "Стоимость по убыванию", "Стоимость по возрастанию" };
 
-        public Visibility IsAdminVisibility = Visibility.Visible;
+        public Visibility IsAdminVisibility { get; set;} = Visibility.Visible;
 
         public Type SelectedType 
         { 

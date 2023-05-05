@@ -1,0 +1,37 @@
+﻿<Page x:Class="aquaparko.TicketBuy"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:aquaparko"
+      mc:Ignorable="d" 
+      d:DesignHeight="1020" d:DesignWidth="1920"
+      Title="TicketBuy">
+
+    <Grid Background="Azure">
+        <StackPanel HorizontalAlignment="Center" Margin="0 100" VerticalAlignment="Top">
+            <TextBlock FontSize="40" Text="Покупка билета"/>
+            <TextBlock Margin="10" HorizontalAlignment="Center" FontSize="25" Text="Имя:"/>
+            <Border BorderBrush="Black" BorderThickness="1">
+                <TextBlock Background="White" FontSize="25" Text="{Binding User.FirstName}"/>
+            </Border>
+            
+            <TextBlock Margin="10" HorizontalAlignment="Center" FontSize="25" Text="Фамилия:"/>
+            <Border BorderBrush="Black" BorderThickness="1">
+                <TextBlock Background="White" FontSize="25" Text="{Binding User.LastName}"/>
+            </Border>
+            
+            <TextBlock Margin="10" HorizontalAlignment="Center" FontSize="25" Text="Отчество:"/>
+            <Border BorderBrush="Black" BorderThickness="1">
+                <TextBlock Background="White" FontSize="25" Text="{Binding User.SurName}"/>
+            </Border>
+            
+            <TextBlock Margin="10" FontSize="25" HorizontalAlignment="Center" Text="Выбрать дату:"/>
+            <DatePicker SelectedDate="{Binding SelectedDate}" DisplayDateStart="{Binding Today}" FontSize="25"/>
+
+            <Button Click="Buying" Background="LightSkyBlue" Margin="100 20" FontSize="25" BorderThickness="1" BorderBrush="Black" Content="Купить"/>
+
+        </StackPanel>
+        <Button Click="GoTickets" BorderBrush="Black" BorderThickness="1" Background="LightBlue" Visibility="{Binding IsAdminVisibility}" Margin="800 20" FontSize="30" VerticalAlignment="Bottom" Content="Список билетов"/>
+    </Grid>
+</Page>

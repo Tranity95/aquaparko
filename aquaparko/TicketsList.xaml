@@ -1,0 +1,16 @@
+﻿<Window x:Class="aquaparko.TicketsList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aquaparko"
+        mc:Ignorable="d"
+        Title="TicketsList" Height="450" Width="800">
+    <Grid>
+        <ListView Margin="10" BorderBrush="Black" BorderThickness="1">
+            <StackPanel>
+                <TextBlock FontSize="25" Text="Спиок всех билетов:"/>
+            </StackPanel>
+        </ListView>
+    </Grid>
+</Window>

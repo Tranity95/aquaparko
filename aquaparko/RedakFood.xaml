@@ -18,7 +18,7 @@
         <Border BorderThickness="1" BorderBrush="Black" Margin="5" Padding="3">
             <StackPanel Margin="7" Grid.Column="0" Grid.Row="0">
                 <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Id"/>
-                <TextBox FontSize="20" Text="{Binding SelectedFood.Id}"/>
+                <TextBlock Background="White" FontSize="20" Text="{Binding SelectedFood.Id}"/>
                 <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Название блюда"/>
                 <TextBox FontSize="20" Text="{Binding SelectedFood.Title}"/>
                 <TextBlock HorizontalAlignment="Center" FontSize="20" Text="Цена"/>

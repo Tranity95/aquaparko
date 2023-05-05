@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace aquaparko;
 
@@ -22,4 +23,11 @@ public partial class Food
     public virtual Type? TypeNavigation { get; set; }
 
     public virtual ICollection<Product> Products { get; } = new List<Product>();
+    public string ProductsList
+    {
+        get
+        {
+            return string.Join(',', Products.Select(s => s.Title));
+        }
+    }
 }

@@ -57,22 +57,22 @@ namespace aquaparko
 
         private void SelectPhoto(object sender, RoutedEventArgs e)
         {
-            string dir = Environment.CurrentDirectory + @"\Images\";
+            string dir = Environment.CurrentDirectory + @"\images";
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Images|*.png";
+            dlg.Filter = "Images|*.png;*.jpg;*.jpeg";
             if (dlg.ShowDialog() == true)
             {
                 var test = new BitmapImage(new Uri(dlg.FileName));
                 if (test.PixelWidth > 400 || test.PixelWidth > 300)
                 {
-                    MessageBox.Show("Картинка слшком большая");
+                    MessageBox.Show("Картинка слишком большая");
                     return;
                 }
                 string newFile = dir + new FileInfo(dlg.FileName).Name;
                 File.Copy(dlg.FileName, newFile, true);
-                SelectedAttraction.Image = File.ReadAllText(newFile);
+                SelectedAttraction.Image = @"\images\" + new FileInfo(dlg.FileName).Name;
                 Signal("SelectedAttraction");
             }
         }
