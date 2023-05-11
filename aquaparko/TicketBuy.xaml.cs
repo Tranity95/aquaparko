@@ -25,7 +25,7 @@ namespace aquaparko
         public DateTime SelectedDate { get; set; }
         public Visibility IsAdminVisibility { get; set; } = Visibility.Visible;
 
-        public User User { get; }
+        public User User { get; set; }
 
         public TicketBuy(User user)
         {
@@ -49,7 +49,12 @@ namespace aquaparko
 
         private void GoTickets(object sender, RoutedEventArgs e)
         {
+            new TicketsList(User).Show();
+        }
 
+        private void MyTickets(object sender, RoutedEventArgs e)
+        {
+            new MyTickets(User).Show();
         }
     }
 }

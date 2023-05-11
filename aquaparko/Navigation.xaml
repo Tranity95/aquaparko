@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
-        Title="Navigation" Height="450" Width="800">
+        WindowState="Maximized" MinHeight="1020" MinWidth="1920"
+        Title="Navigation">
     <Grid Background="Azure">
         <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>

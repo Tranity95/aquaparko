@@ -84,6 +84,13 @@ namespace aquaparko
             Signal(nameof(CountView));
         }
 
+        
+        private void AddSpa(object sender, RoutedEventArgs e)
+        {
+            new RedakSpa(new Sauna()).ShowDialog();
+            Search();
+        }
+
         private void RemoveSpa(object sender, RoutedEventArgs e)
         {
             if (SelectedSauna != null)
@@ -96,22 +103,6 @@ namespace aquaparko
                 }
             }
         }
-
-        private void EditSpa(object sender, RoutedEventArgs e)
-        {
-            if (SelectedSauna != null)
-            {
-                new RedakSpa(SelectedSauna).ShowDialog();
-                Search();
-            }
-        }
-
-        private void AddSpa(object sender, RoutedEventArgs e)
-        {
-            new RedakSpa(new Sauna()).ShowDialog();
-            Search();
-        }
-
         private void EditSpa(object sender, MouseButtonEventArgs e)
         {
             if (user.RoleId != 1)
@@ -124,5 +115,15 @@ namespace aquaparko
                 Search();
             }
         }
+
+        private void EditSpa(object sender, RoutedEventArgs e)
+        {
+            if (SelectedSauna != null)
+            {
+                new RedakSpa(SelectedSauna).ShowDialog();
+                Search();
+            }
+        }
+
     }
 }

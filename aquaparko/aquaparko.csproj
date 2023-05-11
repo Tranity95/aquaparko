@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="avatarko.png" />
     <None Remove="circle.png" />
     <None Remove="food.png" />
     <None Remove="logonow.png" />
     <None Remove="spa.png" />
+    <None Remove="ticket.png" />
     <None Remove="waves3.png" />
   </ItemGroup>
 
@@ -24,10 +26,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="avatarko.png" />
     <Resource Include="circle.png" />
     <Resource Include="food.png" />
     <Resource Include="logonow.png" />
     <Resource Include="spa.png" />
+    <Resource Include="ticket.png" />
     <Resource Include="waves3.png" />
   </ItemGroup>
 

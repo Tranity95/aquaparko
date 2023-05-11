@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:aquaparko"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="1020" d:DesignWidth="1920"
       Title="TicketBuy">
 
@@ -32,6 +32,10 @@
             <Button Click="Buying" Background="LightSkyBlue" Margin="100 20" FontSize="25" BorderThickness="1" BorderBrush="Black" Content="Купить"/>
 
         </StackPanel>
-        <Button Click="GoTickets" BorderBrush="Black" BorderThickness="1" Background="LightBlue" Visibility="{Binding IsAdminVisibility}" Margin="800 20" FontSize="30" VerticalAlignment="Bottom" Content="Список билетов"/>
+        <StackPanel VerticalAlignment="Bottom">
+            <Button Click="GoTickets" BorderBrush="Black" BorderThickness="1" Background="LightBlue" Visibility="{Binding IsAdminVisibility}" Margin="800 10" FontSize="30" VerticalAlignment="Bottom" Content="Список билетов"/>
+            <Button Click="MyTickets" BorderBrush="Black" BorderThickness="1" Background="LightBlue" Margin="800 10" FontSize="30" VerticalAlignment="Bottom" Content="Мои билеты"/>
+        </StackPanel>
+        
     </Grid>
 </Page>
