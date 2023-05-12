@@ -27,7 +27,7 @@ public partial class Food
     {
         get
         {
-            return string.Join(',', Products.Select(s => s.Title));
+            return string.Join(", ", Products.Select(s => s.Title));
         }
     }
 }

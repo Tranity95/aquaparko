@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:aquaparko"
       mc:Ignorable="d"
       d:DesignHeight="1020" d:DesignWidth="1920"
-      Title="TicketBuy">
+      Title="Покупка билета">
 
     <Grid Background="Azure">
         <StackPanel HorizontalAlignment="Center" Margin="0 100" VerticalAlignment="Top">
-            <TextBlock FontSize="40" Text="Покупка билета"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="40" Text="Покупка билета"/>
             <TextBlock Margin="10" HorizontalAlignment="Center" FontSize="25" Text="Имя:"/>
             <Border BorderBrush="Black" BorderThickness="1">
                 <TextBlock Background="White" FontSize="25" Text="{Binding User.FirstName}"/>
@@ -29,7 +29,7 @@
             <TextBlock Margin="10" FontSize="25" HorizontalAlignment="Center" Text="Выбрать дату:"/>
             <DatePicker SelectedDate="{Binding SelectedDate}" DisplayDateStart="{Binding Today}" FontSize="25"/>
 
-            <Button Click="Buying" Background="LightSkyBlue" Margin="100 20" FontSize="25" BorderThickness="1" BorderBrush="Black" Content="Купить"/>
+            <Button Click="Buying" Background="LightSkyBlue" Margin="100 20" FontSize="25" BorderThickness="1" BorderBrush="Black" Content="Забронировать"/>
 
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom">

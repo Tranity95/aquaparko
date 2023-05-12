@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:aquaparko"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SlidePage">
+      Title="Аттракционы">
     <Page.Resources>
         <ContextMenu x:Key="ContextEdit" Visibility="{Binding IsAdminVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Page}}">
             <MenuItem Header="Добавить" Click="AddSlide"/>

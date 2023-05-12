@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
         WindowState="Maximized" MinHeight="1020" MinWidth="1920"
-        Title="Navigation">
+        Title="Главная">
     <Grid Background="Azure">
         <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MyTickets" MinHeight="500" MinWidth="1600" MaxHeight="500" MaxWidth="1600">
+        Title="Ваши билеты" MinHeight="500" MinWidth="1600" MaxHeight="500" MaxWidth="1600">
     <Window.Resources>
         <ContextMenu x:Key="ContextEdit" Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Page}}">
             <MenuItem Header="Отменить эту бронь" Click="RemoveTicketo"/>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Окно регистрации и входа" Height="450" Width="800" FontFamily="Comic Sans MS" MaxHeight="450" MaxWidth="800">
+        Title="Окно авторизации" Height="450" Width="800" FontFamily="Comic Sans MS" MaxHeight="450" MaxWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -22,7 +22,7 @@
             <TextBlock Text="Введите Логин" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="5" Height="35"/>
             <TextBox FontSize="20" Text="{Binding Login}" Margin="5" Height="30"/>
             <TextBlock Text="Введите Пароль" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Margin="5" Height="35"/>
-            <TextBox FontSize="20" Text="{Binding Password}" Margin="5" Height="30"/>
+            <PasswordBox FontSize="20" x:Name="Passwordo" Margin="5" Height="30"/>
             <Button BorderThickness="1" Background="LightSkyBlue" Content="Войти" Height="35" FontSize="20" Margin="5" Width="150" Click="SignIn"/>
             <TextBlock FontSize="15" Margin="5" HorizontalAlignment="Center">
                 <Hyperlink Click="GoSignUp">Нет аккаунта?</Hyperlink>

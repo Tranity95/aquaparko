@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
-        Title="Code" Height="150" Width="150">
+        WindowStartupLocation="CenterScreen"
+        Title="Окно с кодом" Height="150" Width="150">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" Text="Код:"/>

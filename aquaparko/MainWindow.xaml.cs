@@ -23,18 +23,20 @@ namespace aquaparko
     {
         public User user { get; }
         public string Login { get; set; }
-        public string Password { get; set; }
+        public PasswordBox Password { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
+            Password = Passwordo;
         }
 
         private void SignIn(object sender, RoutedEventArgs e)
         {
             using (AquaparkoContext context = new AquaparkoContext())
             {
+
                 var user = context.Users.Include(s => s.Role).FirstOrDefault(a => a.Login == Login && a.Password == Password);
                 if (user != null)
                 {

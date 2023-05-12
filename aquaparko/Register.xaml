@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Register" Height="450" Width="800" MaxHeight="450" MaxWidth="800">
+        Title="Окно регистрации" Height="450" Width="800" MaxHeight="450" MaxWidth="800">
     <Grid Background="Azure">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             

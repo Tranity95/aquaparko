@@ -29,6 +29,7 @@ namespace aquaparko
         private int selectedSorting;
         private Type selecetedType = new Type { Id = 0 };
 
+        public List<Food> ProductsList { get; set; }
         public List<Type> Types { get; set; }
         public List<Food> Foods { get; set; }
         public Food SelectedFood { get; set; }

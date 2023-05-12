@@ -85,7 +85,15 @@ namespace aquaparko
 
         private void RemoveTicket(object sender, RoutedEventArgs e)
         {
-
+            if (SelectedTicket != null)
+            {
+                if (MessageBox.Show("Удалить выбранный билет из базы данных?", "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    DataBase.Instance.Tickets.Remove(SelectedTicket);
+                    DataBase.Instance.SaveChanges();
+                    Search();
+                }
+            }
         }
     }
 }
