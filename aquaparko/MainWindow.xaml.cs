@@ -36,7 +36,6 @@ namespace aquaparko
         {
             using (AquaparkoContext context = new AquaparkoContext())
             {
-
                 var user = context.Users.Include(s => s.Role).FirstOrDefault(a => a.Login == Login && a.Password == Password);
                 if (user != null)
                 {
