@@ -21,6 +21,7 @@ namespace aquaparko
     /// </summary>
     public partial class MainWindow : Window
     {
+        public User user { get; }
         public string Login { get; set; }
         public string Password { get; set; }
 
@@ -50,6 +51,12 @@ namespace aquaparko
         private void GoSignUp(object sender, RoutedEventArgs e)
         {
             new Register().Show();
+            Close();
+        }
+
+        private void IForgor(object sender, RoutedEventArgs e)
+        {
+            new Forgot().Show();
             Close();
         }
     }

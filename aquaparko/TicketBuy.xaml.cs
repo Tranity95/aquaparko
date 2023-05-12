@@ -43,8 +43,8 @@ namespace aquaparko
         private void Buying(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Билет успешно забронирован!");
-                DataBase.GetInstance().Tickets.Add(new Ticket { UserId = this.User.Id, Date = SelectedDate });
-                DataBase.GetInstance().SaveChanges();
+                DataBase.Instance.Tickets.Add(new Ticket { UserId = this.User.Id, Date = SelectedDate });
+                DataBase.Instance.SaveChanges();
         }
 
         private void GoTickets(object sender, RoutedEventArgs e)

@@ -8,13 +8,7 @@ namespace aquaparko
 {
     public class DataBase
     {
-        static AquaparkoContext peremennaya;
-        public static AquaparkoContext GetInstance()
-        {
-            if (peremennaya == null)
-                peremennaya = new AquaparkoContext();
-            return peremennaya;
-        }
+
         private static AquaparkoContext instance;
 
         public static AquaparkoContext Instance

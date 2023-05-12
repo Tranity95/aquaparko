@@ -1,0 +1,23 @@
+﻿<Window x:Class="aquaparko.Forgot"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:aquaparko"
+        mc:Ignorable="d"
+        Title="Forgot" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding Code}"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" Margin="0 5" FontSize="25" Text="Введите ваш адрес электронной почты"/>
+            <TextBox FontSize="25" Margin="200 5" Text="{Binding Po4ta}"/>
+            <Button FontSize="20" Margin="320 5" BorderBrush="Black" BorderThickness="1" Background="LightSkyBlue" Click="Confirm" Content="Подтвердить"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="25" Text="На вашу электронную почту придёт код."/>
+            <TextBlock HorizontalAlignment="Center" FontSize="25" Text="Введите код в окно ниже:"/>
+            <TextBox FontSize="25" Margin="200 5" Text="{Binding Code}"/>
+            <Button FontSize="20" Margin="320 5" BorderBrush="Black" BorderThickness="1" Background="LightSkyBlue" Click="ConfirmCode" Content="Ввести"/>
+        </StackPanel>
+    </Grid>
+</Window>

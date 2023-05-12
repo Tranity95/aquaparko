@@ -27,6 +27,9 @@
             <TextBlock FontSize="15" Margin="5" HorizontalAlignment="Center">
                 <Hyperlink Click="GoSignUp">Нет аккаунта?</Hyperlink>
             </TextBlock>
+            <TextBlock FontSize="15" HorizontalAlignment="Center">
+                <Hyperlink Click="IForgor">Забыл(а) пароль?</Hyperlink>
+            </TextBlock>
         </StackPanel>
         <Image Source="logonow.png" Margin="5" Grid.Column="0" Grid.Row="1"/>
     </Grid>

@@ -61,18 +61,25 @@ namespace aquaparko
 
         private void Check_Register(object sender, RoutedEventArgs e)
         {
+            Convert.ToString(NewPassword);
+
+            if (NewPassword.SecurePassword.Length > 15)
+            {
+                MessageBox.Show("Пароль не может быть длиннее 15 символов!");
+                return;
+            }
             string password = NewPassword.Password;
             string confirmPassword = NewPasswordConfirm.Password;
             if (password != confirmPassword || NewLogin == null || password == null || confirmPassword == null)
             {
-                ErrorMessage = "Пароли не совпадают!";
+                MessageBox.Show("Пароли не совпадают!");
                 return;
             }
             else
             {
                 MessageBox.Show("Регистрация прошла успешно!");
-                DataBase.GetInstance().Users.Add(new User { RoleId = 2, FirstName = NewName, LastName=NewLastName, SurName = NewSurName, Login = NewLogin, Password = password });
-                DataBase.GetInstance().SaveChanges();
+                DataBase.Instance.Users.Add(new User { RoleId = 2, FirstName = NewName, LastName=NewLastName, SurName = NewSurName, Login = NewLogin, Password = password });
+                DataBase.Instance.SaveChanges();
             }
             
         }
