@@ -26,7 +26,6 @@ namespace aquaparko
 
         public string CountView { get; set; }
         public User User { get; }
-        private User user;
         public List<Ticket> Tickets { get; set; }
         public Ticket SelectedTicket { get; set; }
         public List<string> Sorting { get; set; } = new List<string>() { "Без сортировки", "По фамилии (убыванию)", "По фамилии (возрастанию)", "По дате (убыванию)", "По дате (возрастанию)" };
@@ -94,6 +93,11 @@ namespace aquaparko
                     Search();
                 }
             }
+        }
+
+        private void Closing(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

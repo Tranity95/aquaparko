@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Ваши билеты" MinHeight="500" MinWidth="1600" MaxHeight="500" MaxWidth="1600">
+        Title="Ваши билеты" MinHeight="520" MaxHeight="520" MinWidth="1600" MaxWidth="1600">
     <Window.Resources>
         <ContextMenu x:Key="ContextEdit" Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Page}}">
             <MenuItem Header="Отменить эту бронь" Click="RemoveTicketo"/>
@@ -31,6 +31,7 @@
             <Image Source="avatarko.png" Margin="10"/>
             <TextBlock FontSize="13" Text="* Айди - уникальный номер билета"/>
             <TextBlock FontSize="13" Text="   в базе данных"/>
+            <Button Click="Closing" Content="Назад" BorderBrush="Black" Background="LightSkyBlue" BorderThickness="1" Margin="50 20"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="10">
             <Button Content="Отменить эту бронь" Click="RemoveTicketo"/>

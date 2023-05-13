@@ -59,5 +59,11 @@ namespace aquaparko
                 Close();
             }
         }
+
+        private void BackTo(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            Close();
+        }
     }
 }

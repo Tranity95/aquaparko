@@ -41,15 +41,6 @@ namespace aquaparko
             NewPasswordConfirm = txtNewPasswordConfirm;
         }
 
-        public string ErrorMessage
-        {
-            get => errorMessage;
-            set
-            {
-                errorMessage = value;
-                Signal();
-            }
-        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -61,7 +52,7 @@ namespace aquaparko
 
         private void Check_Register(object sender, RoutedEventArgs e)
         {
-            Convert.ToString(NewPassword);
+            
 
             if (NewPassword.SecurePassword.Length > 15)
             {
@@ -70,7 +61,12 @@ namespace aquaparko
             }
             string password = NewPassword.Password;
             string confirmPassword = NewPasswordConfirm.Password;
-            if (password != confirmPassword || NewLogin == null || password == null || confirmPassword == null)
+            if (NewLogin == null || password == null || confirmPassword == null || NewName == null || NewLastName == null || NewSurName == null)
+            {
+                MessageBox.Show("Вы ввели не все данные");
+                return;
+            }
+            if (password != confirmPassword)
             {
                 MessageBox.Show("Пароли не совпадают!");
                 return;

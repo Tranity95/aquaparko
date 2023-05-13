@@ -19,6 +19,9 @@
             <TextBlock HorizontalAlignment="Center" FontSize="25" Text="Введите код в окно ниже:"/>
             <TextBox FontSize="25" Margin="200 5" Text="{Binding Code}"/>
             <Button FontSize="20" Margin="320 5" BorderBrush="Black" BorderThickness="1" Background="LightSkyBlue" Click="ConfirmCode" Content="Ввести"/>
+            <TextBlock FontSize="15" HorizontalAlignment="Center">
+                <Hyperlink Click="BackTo">Вернуться к окну авторизации</Hyperlink>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Window>

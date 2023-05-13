@@ -10,7 +10,7 @@
 
     <Grid Background="Azure">
         <StackPanel HorizontalAlignment="Center" Margin="0 100" VerticalAlignment="Top">
-            <TextBlock HorizontalAlignment="Center" FontSize="40" Text="Покупка билета"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="40" Text="Бронь билета"/>
             <TextBlock Margin="10" HorizontalAlignment="Center" FontSize="25" Text="Имя:"/>
             <Border BorderBrush="Black" BorderThickness="1">
                 <TextBlock Background="White" FontSize="25" Text="{Binding User.FirstName}"/>

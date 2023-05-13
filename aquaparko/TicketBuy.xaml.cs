@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,12 +50,14 @@ namespace aquaparko
 
         private void GoTickets(object sender, RoutedEventArgs e)
         {
-            new TicketsList(User).Show();
+            new TicketsList(User).ShowDialog();
+            
         }
 
         private void MyTickets(object sender, RoutedEventArgs e)
         {
-            new MyTickets(User).Show();
+            new MyTickets(User).ShowDialog();
+            
         }
     }
 }

@@ -87,5 +87,10 @@ namespace aquaparko
                 }
             }
         }
+
+        private void Closing(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
