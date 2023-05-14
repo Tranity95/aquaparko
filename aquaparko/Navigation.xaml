@@ -26,11 +26,13 @@
                 <TextBlock Margin="20 0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Click="GoSlide" Content="Атракционы" Background="Azure" Margin="5" FontSize="20" />
                 </TextBlock>
-                <TextBlock Margin="20 0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="Buy" Content="Забронировать билет" Background="Azure" Margin="5" FontSize="20" />
+            <TextBlock Margin="20 0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    
             <Button Click="Exit" Content="Выход" Background="Azure" Margin="5" FontSize="20" />
                 </TextBlock>
             <TextBlock Margin="20 0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Click="Buy" Content="Купить билет" Background="Azure" Margin="5" FontSize="20" />
+            
             </TextBlock>
         </StackPanel>
             <Image Grid.ColumnSpan="6" VerticalAlignment="Bottom" Source="waves3.png" Grid.Row="1"/>

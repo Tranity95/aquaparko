@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:aquaparko"
         mc:Ignorable="d"
-        Title="Окно редактирования и добавления саун" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Окно редактирования и добавления саун" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800">
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
