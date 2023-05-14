@@ -54,10 +54,12 @@ namespace aquaparko
         {
 
             if (Code == codo)
-            {   
+            {
                 new YourPassword(user).ShowDialog();
                 Close();
             }
+            else
+                MessageBox.Show("Неверный код!");
         }
 
         private void BackTo(object sender, RoutedEventArgs e)
