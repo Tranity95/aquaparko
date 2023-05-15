@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>aquo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +16,10 @@
     <None Remove="spa.png" />
     <None Remove="ticket.png" />
     <None Remove="waves3.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="aquo.ico" />
   </ItemGroup>
 
   <ItemGroup>
