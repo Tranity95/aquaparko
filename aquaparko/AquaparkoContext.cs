@@ -19,10 +19,6 @@ public partial class AquaparkoContext : DbContext
 
     public virtual DbSet<Food> Foods { get; set; }
 
-    public virtual DbSet<Product> Products { get; set; }
-
-    public virtual DbSet<Provider> Providers { get; set; }
-
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Sauna> Saunas { get; set; }
@@ -35,7 +31,7 @@ public partial class AquaparkoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=localhost;user=root;password=Cartoxa_35000;database=aquaparko", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.3.38-mariadb"));
+        => optionsBuilder.UseMySql("server=192.168.200.13;user=student;password=student;database=aquaparko", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.3.38-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -78,6 +74,9 @@ public partial class AquaparkoContext : DbContext
             entity.Property(e => e.Id)
                 .HasColumnType("int(11)")
                 .HasColumnName("id");
+            entity.Property(e => e.Descreption)
+                .HasMaxLength(255)
+                .HasColumnName("descreption");
             entity.Property(e => e.Image)
                 .HasMaxLength(255)
                 .HasColumnName("image");
@@ -94,74 +93,6 @@ public partial class AquaparkoContext : DbContext
             entity.HasOne(d => d.TypeNavigation).WithMany(p => p.Foods)
                 .HasForeignKey(d => d.Type)
                 .HasConstraintName("FK_food_type");
-
-            entity.HasMany(d => d.Products).WithMany(p => p.Foods)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Productfood",
-                    r => r.HasOne<Product>().WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_productfood_productId"),
-                    l => l.HasOne<Food>().WithMany()
-                        .HasForeignKey("FoodId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_productfood_foodId"),
-                    j =>
-                    {
-                        j.HasKey("FoodId", "ProductId")
-                            .HasName("PRIMARY")
-                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("productfood");
-                        j.HasIndex(new[] { "ProductId" }, "FK_productfood_productId");
-                    });
-        });
-
-        modelBuilder.Entity<Product>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("product");
-
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
-            entity.Property(e => e.Title)
-                .HasMaxLength(255)
-                .HasColumnName("title");
-
-            entity.HasMany(d => d.Providers).WithMany(p => p.Products)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Productprovider",
-                    r => r.HasOne<Provider>().WithMany()
-                        .HasForeignKey("ProviderId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_productprovider_providerId"),
-                    l => l.HasOne<Product>().WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_productprovider_productId"),
-                    j =>
-                    {
-                        j.HasKey("ProductId", "ProviderId")
-                            .HasName("PRIMARY")
-                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("productprovider");
-                        j.HasIndex(new[] { "ProviderId" }, "FK_productprovider_providerId");
-                    });
-        });
-
-        modelBuilder.Entity<Provider>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("provider");
-
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
-            entity.Property(e => e.Title)
-                .HasMaxLength(255)
-                .HasColumnName("title");
         });
 
         modelBuilder.Entity<Role>(entity =>

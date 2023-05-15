@@ -62,7 +62,6 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Price}"/>
-                    <GridViewColumn Header="Состав" DisplayMemberBinding="{Binding ProductsList}"/>
                 </GridView>
             </ListView.View>
         </ListView>

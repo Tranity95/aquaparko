@@ -29,7 +29,6 @@ namespace aquaparko
         private int selectedSorting;
         private Type selecetedType = new Type { Id = 0 };
 
-        public List<Food> ProductsList { get; set; }
         public List<Type> Types { get; set; }
         public List<Food> Foods { get; set; }
         public Food SelectedFood { get; set; }
@@ -94,7 +93,7 @@ namespace aquaparko
 
         private void Search()
         {
-            var result = DataBase.Instance.Foods.Include(s => s.Products).Where(s => s.Title.Contains(searchText));
+            var result = DataBase.Instance.Foods.Where(s => s.Title.Contains(searchText));
             if (SelectedType != null && SelectedType.Id != allTypes.Id) 
                 result = result.Where(s => s.Type == SelectedType.Id);
             if (selectedSorting == 1)
