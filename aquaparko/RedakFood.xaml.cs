@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,16 +45,16 @@ namespace aquaparko
 
         private void SaveClose(object sender, RoutedEventArgs e)
         {
-            if (SelectedFood.Id == 0)
-                DataBase.Instance.Foods.Add(SelectedFood);
-            else
-            {
-                SelectedFood.Type = SelectedFood.TypeNavigation?.Id;
-                var origin = DataBase.Instance.Foods.Find(SelectedFood.Id);
-                DataBase.Instance.Entry(origin).CurrentValues.SetValues(SelectedFood);
-            }
-            DataBase.Instance.SaveChanges();
-            Close();
+                if (SelectedFood.Id == 0)
+                    DataBase.Instance.Foods.Add(SelectedFood);
+                else
+                {
+                    SelectedFood.Type = SelectedFood.TypeNavigation?.Id;
+                    var origin = DataBase.Instance.Foods.Find(SelectedFood.Id);
+                    DataBase.Instance.Entry(origin).CurrentValues.SetValues(SelectedFood);
+                }
+                DataBase.Instance.SaveChanges();
+                Close();
         }
 
         private void SelectPhoto(object sender, RoutedEventArgs e)
@@ -78,10 +79,6 @@ namespace aquaparko
             }
         }
 
-        private void GoProducts(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 
     public static class FoodExtension
