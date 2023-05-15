@@ -30,8 +30,8 @@
         </Border>
         <Border BorderThickness="1" Grid.Row="1" BorderBrush="Black" Margin="5" Padding="5">
             <StackPanel Margin="10" Grid.Column="0" Grid.Row="1">
-                <TextBlock FontSize="20" HorizontalAlignment="Center" Text="Состав:"/>
-                <Button Content="Посмотреть" VerticalAlignment="Center" Margin="100 5"  BorderThickness="0" Background="Azure" FontSize="20" Click="GoProducts"/>
+                <TextBlock FontSize="20" HorizontalAlignment="Center" Text="Описание:"/>
+                <TextBox FontSize="20" Text="{Binding SelectedFood.Descreption}"/>
             </StackPanel>
         </Border>
         <Border Margin="0 5" Grid.Row="0" Grid.Column="1" BorderThickness="1" BorderBrush="Black" Padding="5">
