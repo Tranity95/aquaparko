@@ -69,7 +69,7 @@ namespace aquaparko
                 var test = new BitmapImage(new Uri(dlg.FileName));
                 if(test.PixelWidth > 400 || test.PixelWidth > 300)
                 {
-                    MessageBox.Show("Картинка слшком большая");
+                    MessageBox.Show("Картинка слишком большая");
                     return;
                 }
                 string newFile = dir + new FileInfo(dlg.FileName).Name;
