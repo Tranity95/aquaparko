@@ -11,6 +11,8 @@
         <ContextMenu x:Key="ContextEdit" Visibility="{Binding IsAdminVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Page}}">
             <MenuItem Header="Удалить" Click="RemoveTicket"/>
         </ContextMenu>
+
+        <local:TicketsBGConverter x:Key="BGConverter" />
     </Window.Resources>
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
@@ -46,11 +48,19 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Айди" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Айди заказчика" DisplayMemberBinding="{Binding UserId}"/>
+                    <GridViewColumn Header="Айди заказчика" DisplayMemberBinding="{Binding UserId}" />
                     <GridViewColumn Header="Имя заказчика" DisplayMemberBinding="{Binding User.FirstName}"/>
-                    <GridViewColumn Header="Фамилия заказчика" DisplayMemberBinding="{Binding User.LastName}"/>
-                    <GridViewColumn Header="Отчество заказчика" DisplayMemberBinding="{Binding User.SurName}"/>
-                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="Фамилия заказчика" DisplayMemberBinding="{Binding User.LastName}" />
+                    <GridViewColumn Header="Отчество заказчика" DisplayMemberBinding="{Binding User.SurName}" />
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding Date}" Foreground="{Binding Date, Converter={StaticResource BGConverter}}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
